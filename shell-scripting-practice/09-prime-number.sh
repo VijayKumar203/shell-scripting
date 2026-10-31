@@ -8,3 +8,6 @@ read -r b
 
 read -s -r -p "Enter a number: " c
 echo "The Entered Number are : $a, $b, $c"
+
+read -r d
+echo "$d"
