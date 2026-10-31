@@ -6,11 +6,10 @@ read -r b
 # -r prevents backslash escapes from being interpreted
 # -p displays a prompt message
 
-read -s -r -p "Enter a number: " c
-echo "The Entered Number are : $a, $b, $c"
+read -s -r -p "Enter c value: " c
 
-read -p "Enter a value: " d
+read -p "Enter d value: " d
 echo "Enter e value"
 read e
-read -s -p "Enter c value: " f
-echo "The Entered Number are : $d, $e, $f"
+read -s -p "Enter f value: " f
+echo "The Entered Number are : $a, $b, $c, $d, $e, $f"
