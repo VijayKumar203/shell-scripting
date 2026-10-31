@@ -16,7 +16,7 @@ else
             fi
         done
     if [ $flag -eq 0 ]; then
-        echo "$n, "
+        echo "$i, "
     fi
     done
 fi
