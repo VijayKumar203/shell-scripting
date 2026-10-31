@@ -15,8 +15,8 @@ else
                 break
             fi
         done
-    if [ $flag -eq 0 ]; then
+        if [ $flag -eq 0 ]; then
         echo "$i, "
-    fi
+        fi
     done
 fi
