@@ -1,9 +1,11 @@
 #!/bin/bash
 
-read -r -p "Enter a number: " a
+read -r -p "Enter a value: " a
+echo "Enter b value"
+read -r b
+read a
 # -r prevents backslash escapes from being interpreted
 # -p displays a prompt message
 
-read -s -r -p "Enter a number: " b
-read -r c
-echo "The Entered Number is : $a, $b, $c"
+read -s -r -p "Enter a number: " c
+echo "The Entered Number are : $a, $b, $c"
