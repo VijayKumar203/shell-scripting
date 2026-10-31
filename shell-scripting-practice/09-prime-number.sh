@@ -12,5 +12,5 @@ echo "The Entered Number are : $a, $b, $c"
 read -p "Enter a value: " d
 echo "Enter e value"
 read e
-read -s -p "Enter c value: "f
+read -s -p "Enter c value: " f
 echo "The Entered Number are : $d, $e, $f"
