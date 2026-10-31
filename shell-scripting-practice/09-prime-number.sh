@@ -3,7 +3,6 @@
 read -r -p "Enter a value: " a
 echo "Enter b value"
 read -r b
-read a
 # -r prevents backslash escapes from being interpreted
 # -p displays a prompt message
 
