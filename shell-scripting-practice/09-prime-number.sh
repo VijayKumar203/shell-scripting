@@ -9,7 +9,7 @@ read -r b
 read -s -r -p "Enter c value: " c
 
 read -p "Enter d value: " d
+read -s -p "Enter f value: " f
 echo "Enter e value"
 read e
-read -s -r -p "Enter f value: " f
 echo "The Entered Number are : $a, $b, $c, $d, $e, $f"
