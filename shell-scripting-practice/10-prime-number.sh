@@ -10,13 +10,14 @@ else
     do
         for ((j=2; j<=i/2; j++))
         do
-            if [ $((n%i)) -eq 0 ]; then
+            if [ $((n%j)) -eq 0 ]; then
                 flag=1
                 break
             fi
         done
         if [ $flag -eq 0 ]; then
         echo "$i, "
+        flag=0
         fi
     done
 fi
