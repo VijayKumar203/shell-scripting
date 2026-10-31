@@ -18,3 +18,5 @@ else
         echo "$n is a prime number"
     else
         echo "$n is not a prime number"
+    fi
+fi
