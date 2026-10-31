@@ -10,7 +10,7 @@ else
     do
         for ((j=2; j<=i/2; j++))
         do
-            if [ $((n%j)) -eq 0 ]; then
+            if [ $((i%j)) -eq 0 ]; then
                 flag=1
                 break
             fi
