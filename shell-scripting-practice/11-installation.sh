@@ -7,7 +7,7 @@ if [ $USERID -ne 0 ]; then
     exit 1 # failure is other than 0
 fi
 
-dnf install mysqlb -y
+dnf install mysqld -y
 
 if [ $? -eq 0 ]; then
     echo "Installation SUCCESS"
