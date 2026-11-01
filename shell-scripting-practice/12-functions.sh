@@ -12,7 +12,7 @@ VALIDATE(){
         echo "ERROR: Installing $1 is FAILURE"
         exit 1
     else
-        echo "Installing  $2 is SUCCESS"
+        echo "Installing $1 $2 is SUCCESS"
     fi
 }
 
@@ -22,5 +22,5 @@ VALIDATE "MySQL"
 dnf install nginx -y
 VALIDATE "Nginx"
 
-dnf install python3 -y
+dnf install python -y
 VALIDATE $? "Python"
