@@ -7,11 +7,11 @@ if [ $USERID -ne 0 ]; then
     exit 1 # failure is other than 0
 fi
 
-dnf install mysqld -y
+dnf install mysql -y
 
 if [ $? -eq 0 ]; then
-    echo "Installation SUCCESS"
+    echo "Installation of MySQL is SUCCESS"
 else
-    echo "ERROR: Installation FAILURE"
-    # exit 1
+    echo "ERROR: Installation of MySQL is FAILURE"
+    exit 1
 fi
