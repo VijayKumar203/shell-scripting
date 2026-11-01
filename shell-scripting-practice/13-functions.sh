@@ -7,4 +7,4 @@ GREEN=$(tput setaf 2)
 BOLD=$(tput bold)
 
 echo "${GREEN}Operation successful.${RESET}"
-echo "${RED}${BOLD}Critical failure!${RESET}"
+echo "${RED}${BOLD}Critical ${RESET}failure!"
