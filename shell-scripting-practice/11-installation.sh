@@ -13,5 +13,5 @@ if [ $? -eq 0 ]; then
     echo "Installation SUCCESS"
 else
     echo "ERROR: Installation FAILURE"
-    exit 1
+    # exit 1
 fi
