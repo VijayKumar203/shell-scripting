@@ -3,7 +3,7 @@
 read -p "Enter a number: " n
 
 if [ $n -le 1 ]; then
-    echo "$n is not a prime number"
+    echo "Enter a number greater than 1"
 else
     flag=0
     for ((i=2; i<=n/2; i++))
