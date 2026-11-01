@@ -9,7 +9,7 @@ echo "Home directory of user: $HOME"
 echo "PID of this script: $$"
 sleep 50 &
 echo "PID of the last command in background is: $!"
+echo "To Check Exit Status: $?"
 
 # How to run this file for a two word name mention in the double quotes
 # sh 05-special-var.sh "any name" "devops"
-
