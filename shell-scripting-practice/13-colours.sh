@@ -6,13 +6,13 @@ Y="\e[33m"
 B="\e[44m"
 N="\e[0m"
 
-echo -e "$G Hello World $N"
-echo "Check this color"
+# echo -e "$G Hello World $N"
+# echo "Check this color"
 
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
-    echo -e "$R ERROR:: Please run this script with root privelege $N"
+    echo -e $R "ERROR:: Please run this script with root privelege $N"
     exit 1 # failure is other than 0
 fi
 
@@ -37,8 +37,8 @@ dnf list installed mysql # Checks whether mysql is installed in the current serv
 # Install if it is not found
 CHECK mysql
 
-dnf install nginx -y
+dnf list installed nginx
 CHECK nginx
 
-dnf install python3 -y
+dnf list installed python3
 CHECK python3
