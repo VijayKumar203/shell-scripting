@@ -30,7 +30,7 @@ VALIDATE(){
         echo -e "Installing $B $1 $N ... is $R FAILURE $N"
         exit 1
     else
-        echo "Installing $B $1 ... $N is $G SUCCESS $N"
+        echo -e "Installing $B $1 ... $N is $G SUCCESS $N"
     fi
 }
 
