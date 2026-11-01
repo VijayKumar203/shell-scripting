@@ -22,6 +22,7 @@ CHECK(){
         VALIDATE "$1"
     else
         echo -e "$B $1 $N already exist ... $Y SKIPPING $N"
+    fi
 }
 
 VALIDATE(){
