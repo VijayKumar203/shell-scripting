@@ -39,7 +39,7 @@ dnf list installed mysql # Checks whether mysql is installed in the current serv
 CHECK mysql
 
 dnf list installed nginx
-CHECK nginx
+CHECK nginxs
 
 dnf list installed python3
 CHECK python3
