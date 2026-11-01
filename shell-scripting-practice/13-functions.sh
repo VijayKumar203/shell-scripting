@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Define tput styles
-RESET=$(tput sgr0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-BOLD=$(tput bold)
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
-echo "${GREEN}Operation successful.${RESET}"
-echo "${RED}${BOLD}Critical ${RESET}failure!"
+echo -e "$G Hello World $N"
+echo "Check this color"
+
