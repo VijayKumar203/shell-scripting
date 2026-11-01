@@ -8,11 +8,11 @@ if [ $USERID -ne 0 ]; then
 fi
 
 VALIDATE(){
-    if [ $? -eq 0 ]; then
-        echo "Installing $1 is SUCCESS"
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Installing $1 is FAILURE"
         exit 1
     else
-        echo "ERROR: Installing $1 is FAILURE"
+        echo "Installing $1 is SUCCESS"
     fi
 }
 
