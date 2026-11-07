@@ -18,9 +18,8 @@ echo "Script start executed at: $(date)" | tee -a $LOG_FILE
 
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
-    exit 1 # failure is other than 0
+    exit 1 # failure is other than 0 means 1-127 -> FAILURE and 0 -> SUCCESS
 fi
-
 
 CHECK(){
     if [ $? -ne 0 ]; then
