@@ -23,7 +23,7 @@ fi
 
 CHECK(){
     if [ $? -ne 0 ]; then
-        dnf install $1 -y &>> LOG_FILE
+        dnf install $1 -y &>> $LOG_FILE
         VALIDATE "$1"
     else
         echo -e "$B $1 $N already exist ... $Y SKIPPING $N"
@@ -39,12 +39,12 @@ VALIDATE(){
     fi
 }
 
-dnf list installed mysql &>> LOG_FILE # &>> Redirect stdout and stderr; append
+dnf list installed mysql &>> $LOG_FILE # &>> Redirect stdout and stderr; append
 # Install if it is not found
 CHECK mysql
 
-dnf list installed nginx &>> LOG_FILE # Checks whether nginx is installed in the current server or not
+dnf list installed nginx &>> $LOG_FILE # Checks whether nginx is installed in the current server or not
 CHECK nginx
 
-dnf list installed python3 &>> LOG_FILE
+dnf list installed python3 &>> $LOG_FILE
 CHECK python3
