@@ -48,3 +48,6 @@ CHECK nginx
 
 dnf list installed python3 &>> $LOG_FILE
 CHECK python3
+
+# How to run this script
+# sudo sh 14-logs.sh

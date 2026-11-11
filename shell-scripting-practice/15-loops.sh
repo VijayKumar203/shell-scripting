@@ -49,3 +49,6 @@ do
     dnf list installed $package &>> $LOG_FILE
     CHECK $package
 done
+
+# How to run this script
+# sudo sh 15-loops.sh mysql nginx python3
