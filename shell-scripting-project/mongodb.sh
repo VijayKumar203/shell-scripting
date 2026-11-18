@@ -11,7 +11,7 @@ LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
-mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist and does not throw an error if the directory already exists.
+mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist & Does not throw an error if the directory already exists.
 
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
