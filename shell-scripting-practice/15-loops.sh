@@ -16,12 +16,12 @@ LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
-mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist and does not throw an error if the directory already exists.
-
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
     exit 1 # failure is other than 0 means 1-127 -> FAILURE and 0 -> SUCCESS
 fi
+
+mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist and does not throw an error if the directory already exists.
 
 echo "Script start executed at: $(date)" | tee -a $LOG_FILE 
 # Without -a: tee overwrites the existing file.
@@ -41,7 +41,7 @@ VALIDATE(){
         echo -e "Installing $B $1 $N ... is $R FAILURE $N"
         exit 1
     else
-        echo -e "Installing $B $1 ... $N is $G SUCCESS $N"
+        echo -e "Installing $B $1 $N ... is $G SUCCESS $N"
     fi
 }
 
