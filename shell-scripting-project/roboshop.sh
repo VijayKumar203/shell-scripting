@@ -41,4 +41,4 @@ do
 done
 
 # How to run this script
-# sudo sh roboshop.sh mongodb catalogue frontend
+# sudo sh roboshop.sh mongodb catalogue frontend rabbitmq

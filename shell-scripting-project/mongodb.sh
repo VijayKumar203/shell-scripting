@@ -11,12 +11,12 @@ LOGS_FOLDER="/var/log/roboshop-mongodb"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
-mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist & Does not throw an error if the directory already exists.
-
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
     exit 1 # failure is other than 0 means 1-127 -> FAILURE and 0 -> SUCCESS
 fi
+
+mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist & Does not throw an error if the directory already exists.
 
 VALIDATE(){
     if [ $? -ne 0 ]; then
@@ -40,4 +40,4 @@ systemctl start mongod
 VALIDATE "Started MongoDB"
 
 # How to run this script
-# sudo sh 
+# sudo sh mongodb.sh
