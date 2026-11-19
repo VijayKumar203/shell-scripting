@@ -60,34 +60,34 @@ VALIDATE "Changing the app directory"
 rm -rf /app/*
 VALIDATE "Removing Existing code"
 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>> $LOG_FILE
 VALIDATE "unzip catalogue application"
 
-npm install
+npm install &>> $LOG_FILE
 VALIDATE "Installing the dependencies"
 
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE "Copied systemctl service file"
 
-systemctl daemon-reload
+systemctl daemon-reload &>> $LOG_FILE
 VALIDATE "daemon reloaded"
 
-systemctl enable catalogue
+systemctl enable catalogue &>> $LOG_FILE
 VALIDATE "enable catalogue"
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE "Copied mongo repo"
 
-dnf install mongodb-mongosh -y
+dnf install mongodb-mongosh -y &>> $LOG_FILE
 VALIDATE "Installed mongodb client"
 
 INDEX=$(mongosh mongodb.vijaydev.me --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
 if [ INDEX -le 0 ]; then
-    mongosh --host MONGODB_HOST </app/db/master-data.js
+    mongosh --host MONGODB_HOST </app/db/master-data.js &>> $LOG_FILE
     VALIDATE "Loaded catalogue products"
 else
     echo -e "catalogue products already Loaded ... $Y SKIPPING $N"
 fi
 
-systemctl restart catalogue
+systemctl restart catalogue &>> $LOG_FILE
 VALIDATE "Restarted catalogue"
