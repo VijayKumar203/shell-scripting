@@ -7,7 +7,7 @@ B="\e[44m"
 N="\e[0m"
 USERID=$(id -u)
 
-LOGS_FOLDER="/var/log/roboshop-mongodb"
+LOGS_FOLDER="/var/log/roboshop-catalogue"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 SCRIPT_DIR=$PWD
@@ -51,7 +51,7 @@ fi
 mkdir -p /app
 VALIDATE "Created app directory"
 
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>> $LOG_FILE
 VALIDATE "Downloading catalogue application"
 
 cd /app 
@@ -81,9 +81,9 @@ VALIDATE "Copied mongo repo"
 dnf install mongodb-mongosh -y &>> $LOG_FILE
 VALIDATE "Installed mongodb client"
 
-INDEX=$(mongosh mongodb.vijaydev.me --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
-if [ INDEX -le 0 ]; then
-    mongosh --host MONGODB_HOST </app/db/master-data.js &>> $LOG_FILE
+INDEX=$(mongosh MONGODB_HOST --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
+if [ $INDEX -le 0 ]; then
+    mongosh --host $MONGODB_HOST </app/db/master-data.js &>> $LOG_FILE
     VALIDATE "Loaded catalogue products"
 else
     echo -e "catalogue products already Loaded ... $Y SKIPPING $N"
