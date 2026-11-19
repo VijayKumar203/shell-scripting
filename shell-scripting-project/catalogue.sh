@@ -11,6 +11,7 @@ LOGS_FOLDER="/var/log/roboshop-mongodb"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 SCRIPT_DIR=$pwd
+MONGODB_HOST=mongodb.vijaydev.me
 
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
@@ -75,3 +76,18 @@ systemctl enable catalogue
 VALIDATE "enable catalogue"
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE "Copied mongo repo"
+
+dnf install mongodb-mongosh -y
+VALIDATE "Installed mongodb client"
+
+INDEX=$(mongosh mongodb.vijaydev.me --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
+if [ INDEX -le 0 ]; then
+    mongosh --host MONGODB_HOST </app/db/master-data.js
+    VALIDATE "Loaded catalogue products"
+else
+    echo -e "catalogue products already Loaded ... $Y SKIPPING $N"
+fi
+
+systemctl restart catalogue
+VALIDATE "Restarted catalogue"
