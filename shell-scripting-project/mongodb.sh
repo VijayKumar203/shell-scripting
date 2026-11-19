@@ -27,22 +27,22 @@ VALIDATE(){
     fi
 }
 
-cp mongodb.repo /etc/yum.repos.d/mongo.repo
+cp mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE "Adding Mongo repo"
 
 dnf install mongodb-org -y &>> $LOG_FILE
 VALIDATE "Installing MongoDB"
 
-systemctl enable mongod 
+systemctl enable mongod &>> $LOG_FILE
 VALIDATE "Enabled MongoDB"
 
-systemctl start mongod 
+systemctl start mongod &>> $LOG_FILE
 VALIDATE "Started MongoDB"
 
 sed 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 VALIDATE "Allowing remote connections to MongoDB"
 
-systemctl restart mongod
+systemctl restart mongod &>> $LOG_FILE
 VALIDATE "Restarted MongoDB"
 
 # How to run this script
