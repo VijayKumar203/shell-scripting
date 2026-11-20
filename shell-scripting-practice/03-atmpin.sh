@@ -9,11 +9,12 @@ echo "PIN number entered is: $PIN_NUMBER"
 # sh 03-atmpin.sh
 
 read -r -p "Enter a value: " a
-echo "Enter b value"
-read -r -p b
+echo "Enter b value: "
+read -r b
 # -r prevents backslash escapes from being interpreted
 # -p displays a prompt message
 
 read -s -r -p "Enter c value: " c
+read d
 
-echo "The Entered Number are : $a, $b, $c"
+echo "The Entered Number are : $a, $b, $c, $d"
