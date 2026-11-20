@@ -16,5 +16,5 @@
 
 SCR=$(pwd)
 echo "Present Working Directory: $SCR"
-SC=$(PWD)
+SC=$PWD
 echo "Present Working Directory: $SC"
