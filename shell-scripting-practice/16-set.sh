@@ -11,7 +11,8 @@ trap 'echo "There is an error in $LINENO, Command is: $BASH_COMMAND"' ERR
 
 echo "Before error.."
 read a  # here shell understands there is an error and signal is ERR
-echo "Command returns value: $($a)"
+VALUE=$(a)
+echo "Command returns value: $VALUE"
 echo "After error.."
 
 # How to run this script
