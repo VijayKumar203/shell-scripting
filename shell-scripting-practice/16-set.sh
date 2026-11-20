@@ -9,7 +9,7 @@ set -e
 
 trap 'echo "There is an error in $LINENO, Command is: $BASH_COMMAND"' ERR
 
-echo "Hello.."
 echo "Before error.."
-ids # here shell understands there is an error and signal is ERR
+read $1  # here shell understands there is an error and signal is ERR
+echo "$1"
 echo "If there is no error then only this line will execute"
