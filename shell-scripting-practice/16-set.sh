@@ -16,6 +16,6 @@
 
 script=$PWD
 echo "$script"
-echo "$pwd"
+echo "$(pwd)"
 echo "a=$(pwd)"
 echo "b=$pwd"
