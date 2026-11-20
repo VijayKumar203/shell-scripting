@@ -91,3 +91,6 @@ fi
 
 systemctl restart catalogue &>> $LOG_FILE
 VALIDATE "Restarted catalogue"
+
+# How to run this script
+# sudo sh catalogue.sh
