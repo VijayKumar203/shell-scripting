@@ -12,4 +12,4 @@ trap 'echo "There is an error in $LINENO, Command is: $BASH_COMMAND"' ERR
 echo "Hello.."
 echo "Before error.."
 ids # here shell understands there is an error and signal is ERR
-echo "If no error in the above Command"
+echo "If there is no error then only this line will execute"

@@ -10,7 +10,7 @@ echo "PIN number entered is: $PIN_NUMBER"
 
 read -r -p "Enter a value: " a
 echo "Enter b value"
-read -r b
+read -r -p b
 # -r prevents backslash escapes from being interpreted
 # -p displays a prompt message
 
