@@ -43,3 +43,6 @@ CHECK nginx
 
 dnf list installed python3
 CHECK python3
+
+# How to run this script
+# sudo sh 13-colours.sh

@@ -16,3 +16,6 @@ fi
 # -le: Less than or equal to
 # -gt: Greater than
 # -ge: Greater than or equal to
+
+# How to run this script
+# sh 07-conditions.sh any_number

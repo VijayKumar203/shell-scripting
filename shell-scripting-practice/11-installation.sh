@@ -15,3 +15,6 @@ else
     echo "ERROR: Installation of MySQL is FAILURE"
     exit 1
 fi
+
+# How to run this script
+# sudo sh 11-installation.sh

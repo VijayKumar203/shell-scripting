@@ -16,3 +16,6 @@ if [ $(($NUMBER % 2)) -eq 0 ]; then
 else
     echo "Given number $NUMBER is Odd"
 fi
+
+# How to run this script
+# sh 08-even-number.sh

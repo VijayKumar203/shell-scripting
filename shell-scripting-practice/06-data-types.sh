@@ -17,3 +17,6 @@ LEADERS=("Modi" "Putin" "Trudo" "Trump")
 echo "All leaders: ${LEADERS[@]}"
 echo "First Leader: ${LEADERS[0]}"
 echo "Last Leader: ${LEADERS[-1]}"
+
+# How to run this script
+# sh 06-data-types.sh

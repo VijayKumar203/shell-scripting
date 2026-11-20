@@ -24,3 +24,6 @@ VALIDATE "Nginx"
 
 dnf install python3 -y
 VALIDATE $? "Python"
+
+# How to run this script
+# sudo sh 12-functions.sh

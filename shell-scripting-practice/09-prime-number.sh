@@ -20,3 +20,6 @@ else
         echo "$n is not a prime number"
     fi
 fi
+
+# How to run this script
+# sh 09-prime-numbers.sh

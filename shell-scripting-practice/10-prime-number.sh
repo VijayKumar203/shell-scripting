@@ -25,3 +25,6 @@ else
     echo ""
     echo "Total Prime Numbers: $count"
 fi
+
+# How to run this script
+# sh 10-prime-numbers.sh
