@@ -14,5 +14,7 @@
 # dnf install myslq -y # here shell understands there is an error and signal is ERR
 # echo "After error"
 
-SCR=$PWD
+SCR=$(pwd)
 echo "Present Working Directory: $SCR"
+SC=$(PWD)
+echo "Present Working Directory: $SC"
