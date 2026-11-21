@@ -11,7 +11,7 @@ LOGS_FOLDER="/var/log/roboshop-catalogue"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 SCRIPT_DIR=$PWD
-MONGODB_HOST=mongodb.vijaydev.me
+START_TIME=$(date +%s)
 
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
@@ -91,6 +91,10 @@ fi
 
 systemctl restart catalogue &>> $LOG_FILE
 VALIDATE "Restarted catalogue"
+
+END_TIME=$(date +%s)
+TOTAL_TIME=$(($END_TIME-$START_TIME))
+echo -e "script executed in: $Y $TOTAL_TIME seconds $N"
 
 # How to run this script
 # sudo sh catalogue.sh

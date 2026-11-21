@@ -10,6 +10,8 @@ USERID=$(id -u)
 LOGS_FOLDER="/var/log/roboshop-mongodb"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
+SCRIPT_DIR=$PWD
+START_TIME=$(date +%s)
 
 if [ $USERID -ne 0 ]; then
     echo -e $R"ERROR:: Please run this script with root privelege $N"
@@ -27,7 +29,8 @@ VALIDATE(){
     fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+# MongoDB #
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE "Adding Mongo repo"
 
 dnf install mongodb-org -y &>> $LOG_FILE
@@ -44,6 +47,10 @@ VALIDATE "Allowing remote connections to MongoDB"
 
 systemctl restart mongod &>> $LOG_FILE
 VALIDATE "Restarted MongoDB"
+
+END_TIME=$(date +%s)
+TOTAL_TIME=$(($END_TIME-$START_TIME))
+echo -e "script executed in: $Y $TOTAL_TIME seconds $N"
 
 # How to run this script
 # sudo sh mongodb.sh
