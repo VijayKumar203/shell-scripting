@@ -17,7 +17,7 @@ SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
 if [ $USERID -ne 0 ]; then
-    echo -e $R"ERROR:: Please run this script with root $NAME privelege $N"
+    echo -e $R"ERROR:: Please run this script with root privelege $N"
     exit 1 # failure is other than 0 means 1-127 -> FAILURE and 0 -> SUCCESS
 fi
 
