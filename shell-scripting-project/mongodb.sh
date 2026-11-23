@@ -7,7 +7,7 @@ B="\e[44m"
 N="\e[0m"
 USERID=$(id -u)
 
-LOGS_FOLDER="/var/log/roboshop-mongodb"
+LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 SCRIPT_DIR=$PWD
