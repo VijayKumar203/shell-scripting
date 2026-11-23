@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./15-loops.sh
+sh ./15-loops.sh
 NAME=INDIA
 echo "My Country: $NAME"
 echo -e "$B PID $N of $Y SCRITP-1: $$ $N"
