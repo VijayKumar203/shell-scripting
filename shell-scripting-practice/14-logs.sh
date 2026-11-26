@@ -8,7 +8,7 @@ N="\e[0m"
 USERID=$(id -u)
 
 LOGS_FOLDER="/var/log/shell-script"
-SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
+SCRIPT_NAME=$( echo $0 | cut -d "." -f1 ) # we will get 14-logs.sh in that f1 means first fragment 14-logs seperator is dot '.'
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
 mkdir -p $LOGS_FOLDER # Creates parent directories if they don't exist and does not throw an error if the directory already exists.
