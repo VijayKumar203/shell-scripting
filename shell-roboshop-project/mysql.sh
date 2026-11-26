@@ -9,7 +9,7 @@ USERID=$(id -u)
 
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 SCRIPT_DIR=$PWD
 START_TIME=$(date +%s)
 
@@ -29,29 +29,23 @@ VALIDATE(){
     fi
 }
 
-# Redis #
+# MySQL #
 
-dnf module disable redis -y
-VALIDATE "Disabled Default Redis"
+dnf install mysql-server -y &>> $LOG_FILE
+VALIDATE "Installing mysql server"
 
-dnf module enable redis:7 -y
-VALIDATE "Enabled Redis 7"
+systemctl enable mysqld &>> $LOG_FILE
+VALIDATE "enable mysql"
 
-dnf install redis -y 
-VALIDATE "Installed Redis"
+systemctl start mysqld  &>> $LOG_FILE
+VALIDATE "Start mysql"
 
-sed -i -e 's/127.0.0.1/0.0.0.0/g' -e 'protected-mode/c protected-mode no' /etc/redis/redis.conf
-VALIDATE "Allow remote connections & Disabled protected mode"
-
-systemctl enable redis
-VALIDATE "Enabled Redis"
-
-systemctl start redis 
-VALIDATE "Sarting Redis"
+mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOG_FILE
+VALIDATE "MySQL setup root password"
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(($END_TIME-$START_TIME))
 echo -e "script executed in: $Y $TOTAL_TIME seconds $N"
 
 # How to run this script
-# sudo sh redis.sh
+# sudo sh mysql.sh
