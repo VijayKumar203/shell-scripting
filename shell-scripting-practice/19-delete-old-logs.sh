@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE_DIR=/home/ec2-user/var/log/shell-roboshop
+SOURCE_DIR=/home/ec2-user/var/log/shell-e
 
 if [ -d $SOURCE_DIR ]; then
     echo -e "ERROR:: $SOURCE_DIR does not exist"
