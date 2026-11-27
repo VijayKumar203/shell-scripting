@@ -57,7 +57,7 @@ VALIDATE "Downloaded user application"
 cd /app 
 VALIDATE "Changing the directory"
 
-rm -rf /app/* &>> $LOG_FILE
+rm -rf /app/* 
 VALIDATE "Removing Existing code"
 
 unzip /tmp/user.zip &>> $LOG_FILE
