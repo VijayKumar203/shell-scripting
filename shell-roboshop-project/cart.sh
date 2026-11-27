@@ -52,7 +52,7 @@ mkdir -p /app
 VALIDATE "Created app directory"
 
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip &>> $LOG_FILE
-VALIDATE "Downloaded user application"
+VALIDATE "Downloaded cart application"
 
 cd /app 
 VALIDATE "Changing the directory"
@@ -61,7 +61,7 @@ rm -rf /app/* &>> $LOG_FILE
 VALIDATE "Removing Existing code"
 
 unzip /tmp/cart.zip &>> $LOG_FILE
-VALIDATE "unzip user application"
+VALIDATE "unzip cart application"
 
 npm install &>> $LOG_FILE
 VALIDATE "Installing the dependencies"
@@ -72,11 +72,11 @@ VALIDATE "copying systemctl service file"
 systemctl daemon-reload &>> $LOG_FILE
 VALIDATE "daemon reloaded"
 
-systemctl enable user &>> $LOG_FILE
-VALIDATE "Enabled user"
+systemctl enable cart &>> $LOG_FILE
+VALIDATE "Enabled cart"
 
-systemctl restart user &>> $LOG_FILE
-VALIDATE "Started user"
+systemctl restart cart &>> $LOG_FILE
+VALIDATE "Started cart"
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(($END_TIME-$START_TIME))
