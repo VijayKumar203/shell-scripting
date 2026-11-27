@@ -62,7 +62,7 @@ mvn clean package &>> $LOG_FILE
 VALIDATE "clean and build the application"
 
 mv target/shipping-1.0.jar shipping.jar 
-VALIDATE "moving .jar file from target folder"
+VALIDATE "Renaming the artifact"
 
 cp $SCRIPT_DIR/shipping.service /etc/systemd/system/shipping.service
 VALIDATE "copying systemctl service file"
