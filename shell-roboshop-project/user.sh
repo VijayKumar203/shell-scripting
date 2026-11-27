@@ -29,7 +29,7 @@ VALIDATE(){
     fi
 }
 
-# User #
+# NodeJS #
 
 dnf module disable nodejs -y &>> $LOG_FILE
 VALIDATE "Disabled default nodejs"
