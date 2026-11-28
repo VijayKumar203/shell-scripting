@@ -114,3 +114,15 @@ goland_setup(){
     go build &>> $LOG_FILE
     VALIDATE "compiles your Go source code into an executable program"
 }
+nginx_setup(){
+    dnf module disable nginx -y &>> $LOG_FILE
+    VALIDATE "Disabling nginx"
+    dnf module enable nginx:1.24 -y &>> $LOG_FILE
+    VALIDATE "Enabling nginx 24"
+    dnf install nginx -y &>> $LOG_FILE
+    VALIDATE "Installing nginx"
+    systemctl enable nginx &>> $LOG_FILE
+    VALIDATE "enable nginx"
+    systemctl start nginx &>> $LOG_FILE
+    VALIDATE "start nginx"
+}
